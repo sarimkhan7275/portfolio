@@ -1,9 +1,11 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Element } from "react-scroll"
 
 export const Skills = () => {
     return (
       <section id="skills" className="py-16 px-4 bg-white/50 backdrop-blur-sm">
+        <Element name="skills" >
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -36,8 +38,6 @@ export const Skills = () => {
                   "Claude",
                   "Cursor",
                   "OpenAI API",
-                  "Machine Learning",
-                  "Video Processing",
                   "Automation",
                 ],
                 icon: "🤖",
@@ -45,7 +45,7 @@ export const Skills = () => {
               },
               {
                 title: "Cloud & DevOps",
-                skills: ["AWS", "Vercel", "Docker", "Git", "GitHub", "CI/CD"],
+                skills: ["AWS", "Vercel", "Git", "GitHub", "CI/CD"],
                 icon: "☁️",
                 gradient: "from-green-500 to-emerald-500",
               },
@@ -57,7 +57,7 @@ export const Skills = () => {
               },
               {
                 title: "Other",
-                skills: ["Agile", "Scrum", "Testing", "Code Review", "Documentation", "Mathematics"],
+                skills: ["Scrum", "Testing", "Code Review", "Documentation", "Mathematics"],
                 icon: "📚",
                 gradient: "from-violet-500 to-purple-500",
               },
@@ -93,6 +93,7 @@ export const Skills = () => {
             ))}
           </div>
         </div>
+        </Element>
       </section>        
     )
 }

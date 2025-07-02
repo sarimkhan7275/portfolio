@@ -1,9 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, MapPin } from "lucide-react"
+import { Element } from "react-scroll"
 
 export const Experience = () => {
     return (
       <section id="experience" className="py-16 px-4 bg-gradient-to-br from-gray-50 to-purple-50/30">
+        <Element name="experience" >
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -16,34 +18,7 @@ export const Experience = () => {
           </div>
 
           <div className="space-y-8">
-            {[
-              {
-                title: "Software Developer",
-                company: "AIReel.ai",
-                period: "Oct 2024 – Present",
-                location: "Remote",
-                achievements: [
-                  "Built AIReel application end-to-end, an AI-powered platform for generating reels and UGC advertisements",
-                  "Developed full-stack features using modern web technologies and AI integration",
-                  "Implemented automated video generation workflows and user-friendly interfaces",
-                  "Collaborated with AI/ML teams to integrate advanced video processing capabilities",
-                ],
-                gradient: "from-purple-500 to-pink-500",
-              },
-              {
-                title: "Software Developer",
-                company: "Personate.ai",
-                period: "2022 – Oct 2024",
-                location: "Remote",
-                achievements: [
-                  "Worked on SaaS video applications with focus on user experience and performance",
-                  "Developed and maintained web applications using modern JavaScript frameworks",
-                  "Collaborated with cross-functional teams to deliver high-quality software solutions",
-                  "Gained experience in video processing and AI-powered content generation",
-                ],
-                gradient: "from-blue-500 to-cyan-500",
-              },
-            ].map((job, index) => (
+            {experienceData.map((job, index) => (
               <Card
                 key={index}
                 className={`animate-fade-in-up hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50/50 border-l-4 border-l-transparent hover:border-l-purple-500`}
@@ -90,6 +65,51 @@ export const Experience = () => {
             ))}
           </div>
         </div>
+        </Element>
       </section>        
     )
 }
+
+
+const experienceData =  [
+              {
+                title: "Software Developer",
+                company: "AIReel.io",
+                period: "Oct 2024 – Present",
+                location: "Remote",
+                achievements: [
+                  "Built AIReel application end-to-end, an AI-powered platform for generating reels and UGC advertisements",
+                  "Developed full-stack features using modern web technologies and AI integration",
+                  "Implemented automated video generation workflows and user-friendly interfaces",
+                  "Collaborated with AI/ML teams to integrate advanced video processing capabilities",
+                ],
+                gradient: "from-purple-500 to-pink-500",
+              },
+              {
+                title: "Software Developer",
+                company: "Personate.ai",
+                period: "Sep 2023 – Oct 2024",
+                location: "Remote",
+                achievements: [
+                  "Worked on SaaS video applications with focus on user experience and performance",
+                  "Developed and maintained web applications using modern JavaScript frameworks",
+                  "Collaborated with cross-functional teams to deliver high-quality software solutions",
+                  "Gained experience in video processing and AI-powered content generation",
+                ],
+                gradient: "from-blue-500 to-cyan-500",
+              },
+              {
+                title: "Software Developer Trainee",
+                company: "Masai School",
+                period: "Oct 2022 – Aug 2023",
+                location: "Bangalore",
+                achievements: [
+                  "Completed intensive full-stack development program focused on modern web technologies",
+                  "Built multiple real-world projects using HTML, CSS, JavaScript, React, Node.js, and MongoDB",
+                  "Practiced Agile methodologies through daily standups, sprints, and collaborative team projects",
+                  "Strengthened problem-solving skills through structured DSA and system design training",
+                  "Gained hands-on experience with Git, GitHub, and version control in a collaborative coding environment",
+                ],
+                gradient: "from-purple-500 to-pink-500",
+              },
+            ]

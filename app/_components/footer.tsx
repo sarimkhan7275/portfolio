@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { TvIcon, Linkedin, Github, Mail } from "lucide-react"
+import { GITHUB, LINKEDIN } from "../_utils/data"
 
 export const Footer = () => {
     return (
@@ -8,29 +9,43 @@ export const Footer = () => {
         <div className="container mx-auto max-w-6xl relative">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0 animate-fade-in-up">
-              <p className="text-gray-400">© 2024 Sarim Khan. All rights reserved.</p>
+              <p className="text-gray-400">© {new Date().getFullYear()} Sarim Khan. All rights reserved.</p>
             </div>
             <div className="flex space-x-4 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-              {[
-                { icon: Github, href: "https://github.com" },
-                { icon: Linkedin, href: "https://linkedin.com" },
-                { icon: Mail, href: "mailto:sarim@example.com" },
-              ].map(({ icon: Icon, href }, index) => (
-                <Button
-                  key={index}
+              <Button
                   variant="ghost"
                   size="icon"
                   className="text-gray-400 hover:text-white hover:bg-white/10 transform hover:scale-110 transition-all duration-300"
                   asChild
                 >
-                  <a href={href} target="_blank" rel="noopener noreferrer">
-                    <TvIcon className="h-5 w-5" />
+                  <a href={GITHUB} target="_blank" rel="noopener noreferrer">
+                    <Github/>
                   </a>
                 </Button>
-              ))}
+              <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white hover:bg-white/10 transform hover:scale-110 transition-all duration-300"
+                  asChild
+                >
+                  <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+                    <Linkedin/>
+                  </a>
+                </Button>
+              <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white hover:bg-white/10 transform hover:scale-110 transition-all duration-300"
+                  asChild
+                >
+                  <a href={"mailto:sarimkhan7275@gmail.com"} target="_blank" rel="noopener noreferrer">
+                    <Mail/>
+                  </a>
+                </Button>
             </div>
           </div>
         </div>
       </footer>
     )
 }
+

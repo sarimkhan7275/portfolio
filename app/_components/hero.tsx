@@ -1,8 +1,27 @@
 import { Button } from "@/components/ui/button"
 import { Code, Download, Rocket, Sparkles, Zap, Github, Linkedin, Mail, } from "lucide-react"
 import Image from "next/image"
+import { GITHUB, LINKEDIN } from "../_utils/data"
+import { Link } from 'react-scroll';
 
 export const Hero = ({isLoaded} : {isLoaded : boolean}) => {
+    
+    function handleDownloadResume() {
+        const link = document.createElement("a");
+        link.href = "/resume.pdf"; 
+        link.download = "Sarim_Khan_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        window.open(
+            "https://drive.google.com/file/d/1gzb-7qOwG-GcntfOe5OnjsYEsXD3Bk8z/view?usp=sharing",
+            "_blank",
+            "noopener,noreferrer"
+        );
+    }
+
+
     return (
     <section className="pt-24 pb-16 px-4 relative">
         <div className="container mx-auto max-w-6xl">
@@ -42,33 +61,26 @@ export const Hero = ({isLoaded} : {isLoaded : boolean}) => {
                     className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                     asChild
                 >
-                    <a href="#projects" className="flex items-center space-x-2">
+                    <Link to="projects" smooth={true} duration={500}>
                     <Rocket className="h-4 w-4" />
                     <span>View Projects</span>
-                    </a>
+                    </Link>
                 </Button>
                 <Button
                     size="lg"
                     variant="outline"
                     className="border-purple-300 bg-transparent hover:bg-purple-50 transform hover:scale-105 transition-all duration-300 group"
-                    asChild
+                    
+                    onClick={handleDownloadResume}
                 >
-                    <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2"
-                    >
                     <Download className="h-4 w-4 group-hover:animate-bounce" />
                     <span>Download Resume</span>
-                    </a>
                 </Button>
                 </div>
                 <div className="flex space-x-4 pt-4 animate-fade-in-up delay-600">
                 {[
-                    { icon: Github, href: "https://github.com", color: "hover:text-gray-900" },
-                    { icon: Linkedin, href: "https://linkedin.com", color: "hover:text-blue-600" },
-                    { icon: Mail, href: "mailto:sarim@example.com", color: "hover:text-purple-600" },
+                    { icon: Github, href: GITHUB, color: "hover:text-gray-900"},
+                    { icon: Linkedin, href: LINKEDIN, color: "hover:text-blue-600"},
                 ].map(({ icon: Icon, href, color }, index) => (
                     <Button
                     key={index}
@@ -90,9 +102,9 @@ export const Hero = ({isLoaded} : {isLoaded : boolean}) => {
             >
                 <div className="relative group">
                 <div className="w-80 h-80 rounded-full bg-gradient-to-br from-purple-200 via-pink-200 to-blue-200 flex items-center justify-center animate-float">
-                    <div className="w-72 h-72 rounded-full bg-gradient-to-br from-white to-gray-100 flex items-center justify-center shadow-2xl">
+                    <div className="w-72 h-72 rounded-full overflow-hidden pt-[140px] bg-gradient-to-br from-white to-gray-100 flex items-center justify-center shadow-2xl">
                     <Image
-                        src="/placeholder.svg?height=280&width=280"
+                        src="/Sarim-profile.jpg"
                         alt="Sarim Khan"
                         width={280}
                         height={280}

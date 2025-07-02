@@ -1,3 +1,5 @@
+import { Element, Link } from "react-scroll"
+
 export const Navbar = ({isLoaded} : {isLoaded:boolean}) => {
     return (
       <nav
@@ -11,15 +13,14 @@ export const Navbar = ({isLoaded} : {isLoaded:boolean}) => {
               </span>
             </h1>
             <div className="hidden md:flex space-x-6">
-              {["About", "Experience", "Skills", "Projects", "Contact"].map((item, index) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+              {buttons.map((item, index) => (
+                <div
+                  key={index}
                   className={`text-gray-600 hover:text-purple-600 transition-all duration-300 hover:scale-105 animate-fade-in`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {item}
-                </a>
+                  <Link to={item.link} smooth={true} duration={500}>{item.name}</Link>
+                </div>
               ))}
             </div>
           </div>
@@ -27,3 +28,26 @@ export const Navbar = ({isLoaded} : {isLoaded:boolean}) => {
       </nav>
     )
 }
+
+let buttons = [
+  {
+    name : "About",
+    link : "about"
+  },
+  {
+    name : "Experience",
+    link : "experience"
+  },
+  {
+    name : "Skills",
+    link : "skills"
+  },
+  {
+    name : "Projects",
+    link : "projects"
+  },
+  {
+    name : "Contact",
+    link : "contact"
+  },
+]

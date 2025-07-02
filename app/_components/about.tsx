@@ -1,9 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Sparkles } from "lucide-react"
+import { Element } from "react-scroll"
 
 export const About = () => {
     return (
         <section id="about" className="py-16 px-4 bg-white/50 backdrop-blur-sm">
+            <Element name="about" >
             <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12 animate-fade-in-up">
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -11,15 +13,15 @@ export const About = () => {
                 <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Me</span>
                 </h2>
                 <p className="text-gray-600 max-w-2xl mx-auto">
-                Full-stack developer with 2 years of experience building innovative AI-powered applications
+                Full-stack developer with 2.5+ years of experience building innovative AI-powered applications
                 </p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-start">
                 <div className="space-y-6 animate-fade-in-left">
                 <p className="text-gray-700 leading-relaxed text-lg">
-                    I'm a passionate full-stack developer with 2 years of experience in building cutting-edge web
-                    applications. Currently working at <span className="font-semibold text-purple-600">AIReel.ai</span>,
+                    I'm a passionate full-stack developer with 2.5+ years of experience in building cutting-edge web
+                    applications. Currently working at <span className="font-semibold text-purple-600">AIReel.io</span>,
                     where I focus on developing AI-powered video generation platforms.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-lg">
@@ -64,6 +66,7 @@ export const About = () => {
                 </Card>
             </div>
             </div>
+            </Element>
         </section>
     )
 }

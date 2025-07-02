@@ -2,10 +2,28 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@radix-ui/react-separator"
 import { Download, Sparkles, Mail, Linkedin, Github } from "lucide-react"
+import { Element } from "react-scroll"
+import { GITHUB, LINKEDIN } from "../_utils/data"
 
 export const Contact = () => {
+  function handleDownloadResume() {
+        const link = document.createElement("a");
+        link.href = "/resume.pdf"; 
+        link.download = "Sarim_Khan_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        window.open(
+            "https://drive.google.com/file/d/1gzb-7qOwG-GcntfOe5OnjsYEsXD3Bk8z/view?usp=sharing",
+            "_blank",
+            "noopener,noreferrer"
+        );
+    }
+
     return (
       <section id="contact" className="py-16 px-4 bg-white/50 backdrop-blur-sm">
+        <Element name="contact" >
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -28,9 +46,9 @@ export const Contact = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 {[
-                  { icon: Mail, text: "sarim@example.com", href: "mailto:sarim@example.com" },
-                  { icon: Linkedin, text: "linkedin.com/in/sarimkhan", href: "https://linkedin.com" },
-                  { icon: Github, text: "github.com/sarimkhan", href: "https://github.com" },
+                  { icon: Mail, text: "sarimkhan7275@gmal.com", href: "mailto:sarimkhan7275@gmal.com" },
+                  { icon: Linkedin, text: "linkedin.com/in/sarimkhan", href: LINKEDIN },
+                  { icon: Github, text: "github.com/sarimkhan", href: GITHUB },
                 ].map(({ icon: Icon, text, href }, index) => (
                   <div
                     key={index}
@@ -38,7 +56,7 @@ export const Contact = () => {
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
                     <Icon className="h-5 w-5 text-gray-600 group-hover:text-purple-600 group-hover:scale-110 transition-all duration-300" />
-                    <a href={href} className="text-gray-700 group-hover:text-purple-600 transition-colors duration-300">
+                    <a href={href} target="_blank" className="text-gray-700 group-hover:text-purple-600 transition-colors duration-300">
                       {text}
                     </a>
                   </div>
@@ -46,25 +64,12 @@ export const Contact = () => {
                 <Separator className="my-4" />
                 <div className="flex space-x-4">
                   <Button
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300"
-                    asChild
-                  >
-                    <a href="mailto:sarim@example.com">Send Email</a>
-                  </Button>
-                  <Button
+                    onClick={handleDownloadResume}
                     variant="outline"
                     className="flex-1 bg-transparent hover:bg-purple-50 transform hover:scale-105 transition-all duration-300 group"
-                    asChild
                   >
-                    <a
-                      href="/resume.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2"
-                    >
-                      <Download className="h-4 w-4 group-hover:animate-bounce" />
-                      <span>Resume</span>
-                    </a>
+                    <Download className="h-4 w-4 group-hover:animate-bounce" />
+                    <span>Resume</span>
                   </Button>
                 </div>
               </CardContent>
@@ -125,6 +130,7 @@ export const Contact = () => {
             </Card>
           </div>
         </div>
+        </Element>
       </section>
     )
 }
